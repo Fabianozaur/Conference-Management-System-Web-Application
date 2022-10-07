@@ -1,0 +1,18 @@
+label {
+  font-weight: bold;
+  font-size: 18px;
+  color: #CECECE;
+  margin-bottom: 15px;
+}
+
+input, input:enabled {
+  color: #CECECE;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: unset;
+  border-bottom: black 1px solid;
+  border-radius: unset;
+}
+
+input:hover {
+  border-bottom: black 2px solid;
+}

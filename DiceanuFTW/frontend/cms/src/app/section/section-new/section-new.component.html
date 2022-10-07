@@ -1,0 +1,44 @@
+<form [formGroup]="Section" class="section-container text-center">
+  <br>
+  <h1>Create new section</h1>
+  <hr>
+  <br>
+
+  <div class="container bg-transparent">
+    <div class="form-group">
+      <label for="Name"> Name: </label>
+      <input class="form-control" formControlName="Name" id="Name" placeholder="Enter section name" type="text">
+      <div *ngIf="!Section.controls.Name.valid"
+           class="alert">
+        Section name is required!
+      </div>
+    </div>
+
+    <!--    <div class="form-group">-->
+    <!--      <label for="Supervisor"> Supervisor: </label>-->
+    <!--      <input class="form-control" formControlName="Supervisor" id="Supervisor" placeholder="Enter supervisor's name"-->
+    <!--             type="text">-->
+    <!--      <div *ngIf="!Section.controls.Supervisor.valid"-->
+    <!--           class="alert">-->
+    <!--        Supervisor's name is required!-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <div class="form-group">
+      <label for="Room"> Room: </label>
+      <input class="form-control" formControlName="Room" id="Room" placeholder="Enter room" type="text">
+      <div *ngIf="!Section.controls.Room.valid"
+           class="alert">
+        Room is required!
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button (click)="addSection(Section.get('Name').value,Section.get('Room').value)"
+              class="btn btn-outline-light btn" type="button">Add Section
+      </button>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

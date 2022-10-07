@@ -1,0 +1,50 @@
+<div class="conference-container">
+  <br>
+  <table class="table table-borderless">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Supervisor</th>
+      <th>Number of Participants</th>
+      <th>Room</th>
+      <th>Speakers</th>
+      <th>Participation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let section of sections; let i = index">
+      <tr (click)="expand(section.id); setCurrentSection(section)" class="hover-row">
+        <td>
+          {{i + 1}}
+        </td>
+        <!--        <td *ngFor="let column of headers">-->
+        <!--          {{section[column]}}-->
+        <!--        </td>-->
+        <td>{{section.sectionName}}</td>
+        <td>{{section.supervisor.name}}</td>
+        <td>{{section.noOfParticipants}}</td>
+        <td>{{section.roomNumber}}</td>
+        <td>
+          <button color="basic" mat-icon-button title="View Speakers">
+            <mat-icon>list</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button color="basic" mat-icon-button title="Accept">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button color="basic" mat-icon-button title="Refuse">
+            <mat-icon>close</mat-icon>
+          </button>
+        </td>
+      </tr>
+      <tr class="details">
+        <td *ngIf="showDetails.get(section.id)" colspan="9">
+          <app-section-details></app-section-details>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

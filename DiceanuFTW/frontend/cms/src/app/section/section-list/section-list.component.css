@@ -1,0 +1,33 @@
+.conference-container {
+  background-image: linear-gradient(#12253F, #0A1625);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.table {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+}
+
+th {
+  border-bottom: 1px solid black !important;
+  vertical-align: middle !important;
+  color: #CECECE !important;
+}
+
+td {
+  border-bottom: 1px solid black !important;
+  color: #CECECE !important;
+  font-size: 15px;
+  vertical-align: middle !important;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  color: #CECECE;
+}
+
+.hover-row:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}

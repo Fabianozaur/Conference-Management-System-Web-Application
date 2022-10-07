@@ -1,0 +1,29 @@
+<div class="authors-container">
+  <table class="table table-borderless table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th *ngFor="let column of headers">
+        {{column}}
+      </th>
+      <th>
+        Speaker
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let aut of Authors; let i = index">
+      <td>
+        {{i + 1}}
+      </td>
+      <td *ngFor="let column of headers">
+        {{aut[column]}}
+      </td>
+      <td>
+        <input color="warm" title="isSpeaker?" type="checkbox">
+        <mat-checkbox></mat-checkbox>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

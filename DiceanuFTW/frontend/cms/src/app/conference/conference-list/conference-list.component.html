@@ -1,0 +1,55 @@
+<div class="conference-container">
+  <br>
+  <table class="table table-borderless">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Abstract Paper Deadline</th>
+      <th>Full Paper Deadline</th>
+      <th>Program Committee</th>
+      <th>Sections</th>
+      <th>Call for Papers</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let conference of conferences; let i = index">
+      <tr (click)="expand(conference.id); setCurrentConference(conference)" class="hover-row">
+        <td>
+          {{i + 1}}
+        </td>
+        <!--          <td *ngFor="let column of headers">-->
+        <!--            {{conference[column]}}-->
+        <!--          </td>-->
+        <td>{{conference.name}}</td>
+        <td>{{conference.startDate | date: 'M/d/yyyy'}}</td>
+        <td>{{conference.endDate | date: 'M/d/yyyy'}}</td>
+        <td>{{conference.deadlineAbstract | date: 'M/d/yyyy'}}</td>
+        <td>{{conference.deadlineProposal | date: 'M/d/yyyy'}}</td>
+        <td>
+          <button color="basic" mat-icon-button title="View Sections">
+            <mat-icon>list</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button (click)="goToSections()" color="basic" mat-icon-button title="View Sections">
+            <mat-icon>list</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button color="basic" mat-icon-button title="Upload Paper">
+            <mat-icon>file_upload</mat-icon>
+          </button>
+        </td>
+      </tr>
+      <tr class="details">
+        <td *ngIf="showDetails.get(conference.id)" colspan="9">
+          <app-conference-details></app-conference-details>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

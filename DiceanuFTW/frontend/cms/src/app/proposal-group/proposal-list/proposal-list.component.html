@@ -1,0 +1,58 @@
+<div class="proposals-container">
+  <table class="table table-borderless table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th *ngFor="let column of headers">
+        {{column}}
+      </th>
+      <th>
+        Authors
+      </th>
+      <th>
+        Accept/Refuse
+      </th>
+      <th>
+        Review
+      </th>
+      <th>
+        Assign Reviewer
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let proposal of proposals; let i = index">
+      <td>
+        {{i + 1}}
+      </td>
+      <td *ngFor="let column of headers">
+        {{proposal[column]}}
+      </td>
+      <td>
+        <button (click)="goToAuthors()" color="basic" mat-icon-button title="Authors">
+          <mat-icon>list</mat-icon>
+        </button>
+
+      </td>
+      <td>
+        <button color="basic" mat-icon-button title="Accept">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button color="basic" mat-icon-button title="Refuse">
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+      <td>
+        <button (click)="goToReview()" color="basic" mat-icon-button title="Reveu">
+          <mat-icon>grading</mat-icon>
+        </button>
+      </td>
+      <td>
+        <button color="basic" mat-icon-button title="Assign">
+          <mat-icon>assignment_ind</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

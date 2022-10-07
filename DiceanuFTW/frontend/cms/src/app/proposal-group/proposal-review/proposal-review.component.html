@@ -1,0 +1,67 @@
+<form [formGroup]="proposal" class="proposal-container text-center">
+  <br>
+  <h1>Review the proposal</h1>
+  <hr>
+  <br>
+  <div class="container bg-transparent ">
+    <!-- Material unchecked -->
+    <div class="d-flex flex-column">
+      <div class="form-check ">
+        <input class="form-check-input" id="strongacc" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="strongacc">Strong Accept</label>
+      </div>
+      <div class="form-check ">
+        <input class="form-check-input" id="acc" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="acc">Accept</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" id="weakacc" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="weakacc">Weak Accept</label>
+      </div>
+      <div class="form-check">
+        <input checked class="form-check-input" id="boarder" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="boarder">Borderline Paper</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" id="weakrj" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="weakrj">Weak Reject</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" id="reject" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="reject">Reject</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" id="strongrj" mdbInput name="materialExampleRadios" type="radio">
+        <label class="form-check-label" for="strongrj">Strong Reject</label>
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <label> Attach the set of recommendations : </label>
+    <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone" style="width : 100%">
+      Just drag and drop files here
+    </div>
+    <br><br>
+
+    <div id="atach" style="width : 100%">
+      <mat-file-upload-queue #fileUploadQueue
+                             [fileAlias]="'file'"
+                             [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'" multiple>
+        <mat-file-upload *ngFor="let file of fileUploadQueue.files; let i = index" [file]="file" [id]="i">
+          <label> The files : </label>
+        </mat-file-upload>
+      </mat-file-upload-queue>
+    </div>
+    <br><br>
+    <div class="text-center">
+      <a href="http://localhost:4200/proposal">
+        <button class="btn btn-outline-light btn-lg" id="prop" type="click">Submit review</button>
+      </a>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

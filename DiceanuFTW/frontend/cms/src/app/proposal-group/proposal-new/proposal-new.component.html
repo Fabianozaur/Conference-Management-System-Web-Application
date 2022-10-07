@@ -1,0 +1,101 @@
+<form [formGroup]="proposal" class="proposal-container text-center" xmlns="http://www.w3.org/1999/html">
+  <br>
+  <h1>Create new proposal</h1>
+  <hr>
+  <br>
+  <div class="container bg-transparent">
+    <br>
+    <div class="form-group">
+      <label for="Name"> Name: </label>
+      <input class="form-control" formControlName="Name" id="Name" placeholder="Enter Proposal name" type="text">
+      <div *ngIf="!proposal.controls.Name.valid"
+           class="alert">
+        Proposal name is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Keywords"> Keywords: </label>
+      <input class="form-control" formControlName="Keywords" id="Keywords" placeholder="Enter Proposal keywords"
+             type="text">
+      <div *ngIf="!proposal.controls.Keywords.valid"
+           class="alert">
+        Proposal keywords are required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Topics"> Topics: </label>
+      <input class="form-control" formControlName="Topics" id="Topics" placeholder="Enter Proposal topics" type="text">
+      <div *ngIf="!proposal.controls.Topics.valid"
+           class="alert">
+        Proposal topics are required!
+      </div>
+      <br>
+
+      <hr>
+      <label> Existing authors </label>
+      <br>
+      <table class="table table-borderless">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Author name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let author of Authors; let i = index">
+          <td>
+            {{i + 1}}
+          </td>
+          <td>
+            {{author}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <br>
+
+      <div class="form-group">
+        <label for="Author"> Author: </label>
+        <input class="form-control" formControlName="Author" id="Author" placeholder="Enter author name" type="text">
+      </div>
+
+<!--      <div class="form-group">-->
+<!--        <button (click)="addAuthors()" class="btn btn-outline-light btn" type="button">Add author</button>-->
+<!--        <hr>-->
+<!--      </div>-->
+    </div>
+
+    <label> Upload abstract paper: </label>
+    <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone">
+      Just drag and drop files here
+    </div>
+    <br>
+    <br>
+
+    <label> Upload full paper: </label>
+    <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone">
+      Just drag and drop files here
+    </div>
+    <br><br>
+
+    <div id="ok" style="width : 100%">
+      <mat-file-upload-queue #fileUploadQueue
+                             [fileAlias]="'file'"
+                             [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'" multiple>
+        <mat-file-upload *ngFor="let file of fileUploadQueue.files; let i = index" [file]="file" [id]="i">
+          <label> The files : </label>
+        </mat-file-upload>
+      </mat-file-upload-queue>
+    </div>
+    <br><br>
+    <div class="text-center">
+         <button
+      (click)="addProposal(proposal.get('Name').value,proposal.get('Keywords').value,proposal.get('Topics').value)"
+       class="btn btn-outline-light btn-lg" id="prop" type="submit">Add proposal
+      </button>
+    </div>
+    <br>
+    <br>
+
+  </div>
+</form>

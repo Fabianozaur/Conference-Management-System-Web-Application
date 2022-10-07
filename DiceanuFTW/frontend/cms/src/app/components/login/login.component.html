@@ -1,0 +1,29 @@
+<form #loginForm="ngForm">
+
+  <div class="fields">
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input [(ngModel)]="model.email" matInput name="email" required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]="model.password" matInput name="password" required type="password">
+    </mat-form-field>
+
+  </div>
+
+  <br>
+
+  <div id="buttons">
+
+    <button (click)="loginForm.form.valid && login()" [disabled]="!loginForm.valid" mat-raised-button>Login</button>
+
+    <button (click)="loginForm.form.valid && signup()" [disabled]="!loginForm.valid" mat-raised-button>Register</button>
+
+  </div>
+
+</form>

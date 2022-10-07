@@ -1,0 +1,44 @@
+<form [formGroup]="author" class="authors-container text-center">
+  <br>
+  <h1>Make user Author</h1>
+  <hr>
+  <br>
+  <div class="container bg-transparent">
+    <br>
+    <!--    <div class="form-group">-->
+    <!--      <label for="Name"> Name: </label>-->
+    <!--      <input class="form-control" formControlName="Name" id="Name" placeholder="Enter Author's name" type="text">-->
+    <!--      <div *ngIf="!author.controls.Name.valid"-->
+    <!--           class="alert">-->
+    <!--        Author's name is required!-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <div class="form-group">
+      <label for="Email"> Email: </label>
+      <input class="form-control" formControlName="Email" id="Email" placeholder="Enter author's email" type="text">
+      <div *ngIf="!author.controls.Email.valid"
+           class="alert">
+        Author's Email is required!
+      </div>
+    </div>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text-center">
+      <button (click)="onSubmit()" class="btn btn-outline-light btn-lg" id="prop" type="submit">Make Author</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+</form>

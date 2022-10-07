@@ -1,0 +1,122 @@
+<script src="conference-new.component.ts"></script>
+<form [formGroup]="addedConference" class="conference-container text-center">
+  <br>
+  <h1>Create new conference</h1>
+  <hr>
+  <br>
+
+  <div class="container bg-transparent">
+    <div class="form-group">
+      <label for="Name"> Name: </label>
+      <input class="form-control" formControlName="Name" id="Name" placeholder="Enter conference name" type="text">
+      <div *ngIf="!addedConference.controls.Name.valid"
+           class="alert">
+        Conference name is required!
+      </div>
+    </div>
+
+    <label>Start and end date:</label>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a date range:</mat-label>
+        <mat-date-range-input [rangePicker]="picker1">
+          <input formControlName="StartDate" id="StartDate" matStartDate placeholder="Start date">
+          <input formControlName="EndDate" id="EndDate" matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
+        <mat-date-range-picker #picker1></mat-date-range-picker>
+      </mat-form-field>
+      <div class="container">
+        <div class="row">
+          <div *ngIf="!addedConference.controls.StartDate.valid"
+               class="alert col">
+            Start date is required!
+          </div>
+          <div *ngIf="!addedConference.controls.EndDate.valid"
+               class="alert col">
+            End date is required!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <label>Deadlines:</label>
+    <div class="form-group">
+      <mat-form-field appearance="fill" class="mr-3">
+        <mat-label>Choose abstract deadline</mat-label>
+        <label>
+          <input [matDatepicker]="picker2" formControlName="DeadlineAbstract" id="DeadlineAbstract" matInput>
+        </label>
+        <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="ml-3">
+        <mat-label>Choose proposal deadline</mat-label>
+        <label>
+          <input [matDatepicker]="picker3" formControlName="DeadlineProposal" id="DeadlineProposal" matInput>
+        </label>
+        <mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <div *ngIf="!addedConference.controls.DeadlineProposal.valid"
+           class="alert col">
+        Deadline for proposal is required!
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="ProgramCommittee"> Program Committee: </label>
+      <input class="form-control" formControlName="ProgramCommittee" id="ProgramCommittee"
+             placeholder="Enter program committee's name"
+             type="text">
+      <div *ngIf="!addedConference.controls.ProgramCommittee.valid"
+           class="alert">
+        Program committee's name is required!
+      </div>
+    </div>
+
+    <hr>
+    <label> Existing sections </label>
+    <br>
+    <table class="table table-borderless">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Section name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let section of Sections; let i = index">
+        <td>
+          {{i + 1}}
+        </td>
+        <td>{{section.sectionName}}</td>
+        <td>{{section.supervisor.name}}</td>
+        <td>{{section.noOfParticipants}}</td>
+        <td>{{section.roomNumber}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+
+    <div class="form-group">
+      <label for="Section"> Section: </label>
+      <input class="form-control" formControlName="Section" id="Section" placeholder="Enter section name" type="text">
+    </div>
+
+    <!--    <div class="form-group">-->
+    <!--      <button (click)="addSection(addedConference.get('Name').value,addedConference.get('StartDate').value,addedConference.get('EndDate').value,addedConference.get('DeadlineAbstract').value,addedConference.get('DeadlineProposal').value)" class="btn btn-outline-light btn" type="button">Add section</button>-->
+    <!--      <hr>-->
+    <!--    </div>-->
+
+    <div class="text-center">
+      <button
+        (click)="addConference(addedConference.get('Name').value,addedConference.get('StartDate').value,addedConference.get('EndDate').value,addedConference.get('DeadlineAbstract').value,addedConference.get('DeadlineProposal').value)"
+        class="btn btn-outline-light btn" type="button">Add Conference
+      </button>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

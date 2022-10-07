@@ -1,0 +1,41 @@
+.section-container {
+  background-image: linear-gradient(#12253F, #0A1625);
+}
+
+label {
+  font-weight: bold;
+  font-size: 18px;
+  color: #CECECE;
+  margin-bottom: 15px;
+}
+
+h1 {
+  color: white;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+input, input:enabled {
+  color: #CECECE;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: unset;
+  border-bottom: black 1px solid;
+  border-radius: unset;
+}
+
+input:hover {
+  border-bottom: black 2px solid;
+}
+
+hr {
+  border-bottom: 1px solid #000000;
+}
+
+.alert {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #6d6d6d;
+}
+
+.form-group {
+  margin-bottom: 50px;
+}
